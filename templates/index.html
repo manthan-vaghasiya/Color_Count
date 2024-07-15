@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block styles %}
+        {{ bootstrap.load_css() }}
+    {% endblock %}
+</head>
+<body>
+    <div class="container mt-4 d-flex justify-content-center">
+        <h1>DEMO</h1>
+    </div>
+    <div class="container mt-4 d-flex justify-content-center">
+        <img style="height:500px; width: 500px;" src="{{ file_path }}" alt="">
+    </div>
+    <div class="container">
+        <table class="table mt-5 text-center">
+            <thead>
+              <tr>
+                <th scope="col">Color</th>
+                <th scope="col">Color Code</th>
+                <th scope="col">Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for i in range(0, hex_data|length) %}
+                    <tr>
+                        <td style="background-color:{{ hex_data[i] }}"></td>
+                        <td>{{ hex_data[i] }}</td>
+                        <td>{{ perc_data[i] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    <div class="container mt-4">
+        <form action="" method="post" enctype='multipart/form-data'>
+            <div class="form-group">
+                <label for="fname">File to Upload :</label><br>
+                <input type="file" class="form-control-file" id="myFile" name="myFile">
+            </div>
+            <button type="submit" class="btn btn-primary my-2">Upload</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
